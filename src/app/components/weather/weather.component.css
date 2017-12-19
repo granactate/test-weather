@@ -5,3 +5,7 @@
 .weather-icon {
     max-height: 128px;
 }
+
+agm-map {
+    height: 300px;
+}

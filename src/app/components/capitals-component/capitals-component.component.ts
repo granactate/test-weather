@@ -13,10 +13,15 @@ export class CapitalsComponentComponent implements OnInit {
 
   constructor(public capitalService: CapitalService) {
     this.country = null;
-    capitalService.getCapitals()
-    .subscribe(capitals => {
-      this.capitals = capitals.json();
-    });
+    if(window.localStorage.getItem("capitals")) {
+      this.capitals = window.localStorage.getItem("capitals");
+    }
+    else {
+      capitalService.getCapitals()
+      .subscribe(capitals => {
+        this.capitals = capitals.json();
+      });
+    }
   }
 
 

@@ -15,12 +15,14 @@ export class WeatherComponent implements OnInit {
 
   private country: any;
   private weather: any;
+  private weatherUnits: string;
   constructor(
     public capitalsService: CapitalService,
     public weatherService: WeatherService) { 
 
     this.country = capitalsService.getCountry();
-    if( this.country.latlng ) {
+    this.weatherUnits = 'C';
+    if( this.country && this.country.latlng ) {
       var latitude = this.country.latlng[0];
       var longitude = this.country.latlng[1];
       weatherService.getWeather(latitude, longitude)
@@ -29,7 +31,11 @@ export class WeatherComponent implements OnInit {
         console.log(this.weather);
       });
     }
-    
+  }
+
+
+  public setUnits() {
+    this.weatherUnits = this.weatherUnits=='C' ? 'F' : 'C';
   }
 
   ngOnInit() {

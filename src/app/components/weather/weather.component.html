@@ -1,12 +1,23 @@
 <div class="panel-group" *ngIf="weather" [@fadeBottom]>
   <div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="text-primary">{{country.name}}</h2>
+    </div>
     <div class="panel-body">
-      <h2 class="text-primary">{{country.name}}</h2>
+      <h3 *ngIf="weatherUnits=='C'">{{(weather.main.temp).toFixed(2)}} ºC</h3>
+      <h3 *ngIf="weatherUnits=='F'">{{(weather.main.temp+32).toFixed(2)}} ºF</h3>
       <p>Descripcion: {{weather.weather[0].description}}</p>
       <img class="weather-icon" src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png">
     </div>
+    <div class="panel-footer">
+        <button class="btn btn-info btn-block" (click)="setUnits()">Cambiar a {{weatherUnits=='F' ? 'Centigrados' : 'fahrenheit' }}</button>
+    </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-body">Panel Content</div>
+    <div class="panel-body">
+      <agm-map [latitude]="country.latlng[0]" [longitude]="country.latlng[1]">
+        <agm-marker [latitude]="country.latlng[0]" [longitude]="country.latlng[1]"></agm-marker>
+      </agm-map>
+    </div>
   </div>
 </div>
