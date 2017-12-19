@@ -22,7 +22,7 @@ export class WeatherComponent implements OnInit {
 
     this.country = capitalsService.getCountry();
     this.weatherUnits = 'C';
-    if( this.country && this.country.latlng ) {
+    if( this.country.latlng ) {
       var latitude = this.country.latlng[0];
       var longitude = this.country.latlng[1];
       weatherService.getWeather(latitude, longitude)
