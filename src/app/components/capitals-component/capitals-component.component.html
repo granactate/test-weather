@@ -1,0 +1,6 @@
+<div class="list-group capitals-list">
+  <li class="list-group-item" *ngFor="let country of capitals">
+    {{country.capital}}
+    <input class="pull-right" type="radio" name="capital_check" (click)="selectCountry(country)">
+  </li>
+</div>

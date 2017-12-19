@@ -1,0 +1,12 @@
+<div class="panel-group" *ngIf="weather" [@fadeBottom]>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2 class="text-primary">{{country.name}}</h2>
+      <p>Descripcion: {{weather.weather[0].description}}</p>
+      <img class="weather-icon" src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png">
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">Panel Content</div>
+  </div>
+</div>

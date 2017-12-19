@@ -1,0 +1,17 @@
+.navbar.navbar-inverse {
+    background-color: #1B61B8;
+    color: white;
+    border-radius: 0 !important;
+    border: none;
+    height: 200px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 95%);
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 95%);
+}
+h1 {
+    margin-bottom: 1em;
+}
+
+img.icon {
+    max-height: 34px;
+    margin-left: 5px;
+}
