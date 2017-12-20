@@ -29,7 +29,7 @@ export class WeatherService {
     //get weather info by latitude and longitude
     public getWeather(lat:number, lon:number) {
         var current_time = new Date().getTime();
-        if(this.weather && (current_time <= this.weatherTime)) {
+        if(this.weather && (current_time <= this.weatherTime+15000)) {
             return this.weather;
         }
         else {
